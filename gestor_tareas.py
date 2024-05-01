@@ -45,17 +45,12 @@ def eliminar_tarea(posicion):
         print("Error!!\nLa tarea no existe en la lista de tareas!!\nNo se puede eliminar!")
 
 
-# Aqui ya empezamos a crear la funcion principal la 
-# llamermos como al programa: taskminder.
-#def main():
-#    taskminder = TareasPendientes()
-
 
 # Vamos a darle un toque "gráfico" al título de la aplicación 
 # usando un ascii art
 print()
 print("░▀█▀▒▄▀▄░▄▀▀░█▄▀░░░█▄▒▄█░█░█▄░█░█▀▄▒██▀▒█▀▄")
-print("░▒█▒░█▀█▒▄██░█▒█▒░░█▒▀▒█░█░█▒▀█▒█▄▀░█▄▄░█▀▄ v.1.0.2")
+print("░▒█▒░█▀█▒▄██░█▒█▒░░█▒▀▒█░█░█▒▀█▒█▄▀░█▄▄░█▀▄ v.1.0.3")
 print("Created by: Antonio Gutiérrez")
 print("https://github.com/afgsanchez")
 print()
@@ -65,7 +60,9 @@ print()
 while True:
 
 # Ahora creamos el menu para la interacción con el usuario.
-    print("Elije una opción: ")
+    print(".------------------.")
+    print("| Elije una opcion |")
+    print("'------------------'")
     print()
     print("1. Agregar una tarea.")
     print("2. Listar tareas.")
@@ -101,6 +98,8 @@ while True:
         print("| Has elegido la opcion 2 |")
         print("+-------------------------+")
         print()
+        print("Aquí tienes el listado tareas.")
+        print()
         # Ahora llamamos a la funcion 2 que es la de listar las tareas
         # que hemos ido almacenando
         listar_tareas()
@@ -111,12 +110,62 @@ while True:
         print("| Has elegido la opcion 3 |")
         print("+-------------------------+")
         print()
+        # Mostramos la lista de tareas para que sea facil elegir.
+        listar_tareas()
+        print()
+        # Vamos a intentar marcar la tarea que el usuario nos indique
+        # como completada. Si el usuario nos marca un numero de tarea
+        # que no existe, nos muestra un mensaje de error.
+        posicion = input("¿Qué número de tarea que quieres completar?: ")
+        print()
+        
+        try:
+            posicion = int(posicion) - 1 #Aqui debemos convertir la entrada
+                                         # de string a entero.
+            marcar_completada(posicion) # llamamos a la funcion 3 que nos
+                                        # marcará la tarea como completada.
+            print()
+            print("Tarea marcada como completada!")
+            print("\n")
+        # Ahora manejamos en error en caso de entrada inválida.
+        except ValueError:
+            print("Ese número de tarea no existe!")
+            print()
+        # Y si la posición de la tarea no es válida tambien lo indicamos
+        except IndexError:
+            print("La posición de la tarea en la lista no es válida!")
+            print()
+            
 
     elif seleccion == "4":
         print("+-------------------------+")
         print("| Has elegido la opcion 4 |")
         print("+-------------------------+")
         print()
+        # Mostramos la lista de tareas para que no se equivoque al
+        # elegir la tarea a eliminar.
+        listar_tareas()
+        print()
+        # Aqui ponemos el codigo para eliminar una tarea de la lista.
+        print("¡¡ATENCION!! Esta acción no se puede revertir!")
+        print()
+       
+        posicion = input("¿Qué número de tarea que quieres eliminar?: ")
+        print()
+        try:
+            posicion = int(posicion) - 1 #Aqui debemos convertir la entrada
+                                         # de string a entero.
+            # Ahora llamamos a la funcion 4 que nos elimnará la tarea
+            # que le pasemos en el parámetro posicion.
+            eliminar_tarea(posicion)
+            print("Tarea ", posicion + 1, " eliminada!")
+
+
+            # Ahora vamos a manejar los errores de forma similar a
+            # la opción anterior, pero nos mostrará los errores que 
+            # nos de el sistema, no los mensajes que le hayamos programado.
+        except (ValueError, IndexError) as fallo:
+            print(fallo)
 
     elif seleccion == "5":
         print("+---------------------------------+")
@@ -126,7 +175,7 @@ while True:
         print("Muchas gracias por usar TASK MINDER")
         print()
         print("░▀█▀▒▄▀▄░▄▀▀░█▄▀░░░█▄▒▄█░█░█▄░█░█▀▄▒██▀▒█▀▄")
-        print("░▒█▒░█▀█▒▄██░█▒█▒░░█▒▀▒█░█░█▒▀█▒█▄▀░█▄▄░█▀▄ v.1.0.2")
+        print("░▒█▒░█▀█▒▄██░█▒█▒░░█▒▀▒█░█░█▒▀█▒█▄▀░█▄▄░█▀▄ v.1.0.3")
         print("Created by: Antonio Gutiérrez")
         print("https://github.com/afgsanchez")
         print()
