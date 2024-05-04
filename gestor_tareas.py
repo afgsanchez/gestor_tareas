@@ -28,6 +28,8 @@ class TaskManager:
     def marcar_completada(self, posicion):
         if 0 <= posicion < len(self.tareas):
             self.tareas[posicion]["completada"] = True
+            print("¡Tarea marcada como completada!")
+            print()
         else:
             print("Error!!\n¡La tarea no existe en la lista de tareas!")
 
@@ -37,6 +39,8 @@ class TaskManager:
     def eliminar_tarea(self, posicion):
         if 0 <= posicion < len(self.tareas):
             del self.tareas[posicion]
+            print("¡Tarea eliminada!")
+            print()
         else:
             print("Error!!\n¡La tarea no existe en la lista de tareas!\n¡No se puede eliminar!")
 
@@ -49,7 +53,7 @@ task_manager = TaskManager()
 # usando un ascii art
 print()
 print("░▀█▀▒▄▀▄░▄▀▀░█▄▀░░░█▄▒▄█░█░█▄░█░█▀▄▒██▀▒█▀▄")
-print("░▒█▒░█▀█▒▄██░█▒█▒░░█▒▀▒█░█░█▒▀█▒█▄▀░█▄▄░█▀▄ v.1.0.5")
+print("░▒█▒░█▀█▒▄██░█▒█▒░░█▒▀▒█░█░█▒▀█▒█▄▀░█▄▄░█▀▄ v.1.0.6")
 print("Created by: Antonio Gutiérrez")
 print("https://github.com/afgsanchez")
 print()
@@ -127,8 +131,6 @@ while True:
             posicion = int(posicion) - 1
 # llamamos al metodo 3 que nos marcará la tarea como completada.
             task_manager.marcar_completada(posicion)
-            print()
-            print("¡Tarea marcada como completada!")
             print("\n")
 # Ahora manejamos el error en caso de entrada inválida.
         except ValueError:
@@ -157,7 +159,6 @@ while True:
 # Ahora llamamos al metodo 4 que nos elimnará la tarea
 # que le pasemos en el parámetro posicion.
             task_manager.eliminar_tarea(posicion)
-            print("¡Tarea eliminada!")
             print("\n")
 # Ahora vamos a manejar los errores de forma similar a
 # la opción anterior, pero nos mostrará los errores que 
@@ -173,7 +174,7 @@ while True:
         print("¡Muchas gracias por usar TASK MINDER!")
         print()
         print("░▀█▀▒▄▀▄░▄▀▀░█▄▀░░░█▄▒▄█░█░█▄░█░█▀▄▒██▀▒█▀▄")
-        print("░▒█▒░█▀█▒▄██░█▒█▒░░█▒▀▒█░█░█▒▀█▒█▄▀░█▄▄░█▀▄ v.1.0.5")
+        print("░▒█▒░█▀█▒▄██░█▒█▒░░█▒▀▒█░█░█▒▀█▒█▄▀░█▄▄░█▀▄ v.1.0.6")
         print("Created by: Antonio Gutiérrez")
         print("https://github.com/afgsanchez")
         print()
