@@ -255,6 +255,7 @@ while True:
         print("5. Guardar tareas en un archivo: Guarda todas las tareas en un archivo codificado en base64.")
         print("    - Al elegir esta opción, se te pedirá que escribas un nombre para el archivo.")
         print("    - Asegúrate de escribir un nombre único y sin extensión.")
+        print("    - No debes usar palabras reservadas del sistema, por ejemplo 'data'.")
         print("6. Cargar archivo de tareas: Carga las tareas desde un archivo previamente guardado.")
         print("    - Al elegir esta opción, se te pedirá que escribas el nombre del archivo a cargar.")
         print("    - Asegúrate de escribir el nombre exacto del archivo, sin extensión.")
